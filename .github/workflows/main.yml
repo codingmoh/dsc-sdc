@@ -24,10 +24,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
+      - uses: actions/checkout@v2
       - name: Build all images
-        #uses: actions/checkout@v2
         run: docker-compose build
           
+      - uses: actions/checkout@v2
       - name: push images
-        #uses: actions/checkout@v2
         run: docker-compose push
