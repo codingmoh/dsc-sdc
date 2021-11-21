@@ -4,6 +4,7 @@ import requests
 import streamlit as st
 from PIL import Image
 import io
+import os
 
 STYLES = {
     "candy": "candy",
@@ -17,6 +18,8 @@ STYLES = {
     "udnie": "udnie",
 }
 
+env_backend_url = os.environ['APP_BACKEND_URL']
+
 st.set_option("deprecation.showfileUploaderEncoding", False)
 
 st.title("Style transfer web app")
@@ -28,6 +31,6 @@ style = st.selectbox("Choose the style", [i for i in STYLES.keys()])
 if st.button("Style Transfer"):
     if image is not None and style is not None:
         files = {"file": image.getvalue()}
-        response = requests.post(f"http://backend:8085/{style}", files=files)
+        response = requests.post(f"{env_backend_url}/{style}", files=files)
         image_bytes = io.BytesIO(response.content)
         st.image(Image.open(image_bytes))

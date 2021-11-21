@@ -1,8 +1,4 @@
-import asyncio
 import time
-import uuid
-from concurrent.futures import ProcessPoolExecutor
-from functools import partial
 from starlette.responses import StreamingResponse
 
 import cv2
@@ -41,4 +37,5 @@ async def get_image(style: str, file: UploadFile = File(...)):
     return StreamingResponse(io.BytesIO(img.tobytes()), media_type="image/png")
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8585)
+
+    uvicorn.run("main:app", host="0.0.0.0", port=80)
