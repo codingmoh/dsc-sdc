@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  frontend:
+    build: frontend
+    image: codingmoh/stremlit_style_tf_fe
+    ports:
+      - 80:8501
+    depends_on:
+      - backend
+
+  backend:
+    build: backend
+    image: codingmoh/fastapi_style_tf
+    ports:
+      - 8085:8085
