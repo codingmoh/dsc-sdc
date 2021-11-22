@@ -31,4 +31,5 @@ jobs:
         docker-compose push
         
   call-workflow-deployment:
+    needs: build
     uses: codingmoh/dsc-sdc/.github/workflows/deployment.yml@main
