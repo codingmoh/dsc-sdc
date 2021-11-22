@@ -31,7 +31,7 @@ jobs:
     needs: build
     uses: codingmoh/dsc-sdc/.github/workflows/deployment.yml@main
     secrets:
-      token:
+      token: |
         ${{ secrets.AzureAppService_PublishProfile_5d6bd7b1bb6c4e26bb5a3bd5e8e27666 }} 
         ${{ secrets.AzureAppService_ContainerUsername_274181b0e0b94660aeccfb8fe71b5f27 }}
         ${{ secrets.AzureAppService_ContainerUsername_8b54ef5a291744ef9e9bcc11a94ab4e7 }
