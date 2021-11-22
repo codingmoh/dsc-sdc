@@ -33,4 +33,5 @@ if st.button("Style Transfer"):
         files = {"file": image.getvalue()}
         response = requests.post(f"{env_backend_url}/{style}", files=files)
         image_bytes = io.BytesIO(response.content)
-        st.image(Image.open(image_bytes))
+        img = Image.open(image_bytes)
+        st.image(img)
