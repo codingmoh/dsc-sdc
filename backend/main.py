@@ -19,7 +19,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome from the API"}
+    return {"message": "Welcome from the API!"}
 
 
 async def combine_images(output, resized, name):
